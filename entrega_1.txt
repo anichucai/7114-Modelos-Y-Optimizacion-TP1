@@ -1,0 +1,10 @@
+observoq que tengo que buscar las una solución que minimice el gasto. Para ello, se tiene que romar en cuenta:
+- el tiempo de lavado
+- la incompatibilidad entre lavados.
+
+Por lo tanto, la primer solución propuesta es una greedy que consiste en los siguientes pasos:
+
+1) Conocer para cada prenda sus prendas incompatibles
+2) Ordenar por tiempo de lavado las prendas
+3) Tomar el tiempo de lavado más chico y calcular los sets compatibles.
+4) Para cada set compatible calcular si 
