@@ -1,10 +1,15 @@
-observoq que tengo que buscar las una solución que minimice el gasto. Para ello, se tiene que romar en cuenta:
-- el tiempo de lavado
-- la incompatibilidad entre lavados.
+Facultad de Ingeniería de la Universidad de Buenos Aires 
 
-Por lo tanto, la primer solución propuesta es una greedy que consiste en los siguientes pasos:
+Modelos y Optimización I - 2021 1C
 
-1) Conocer para cada prenda sus prendas incompatibles
-2) Ordenar por tiempo de lavado las prendas
-3) Tomar el tiempo de lavado más chico y calcular los sets compatibles.
-4) Para cada set compatible calcular si 
+# Trabajo Práctico I
+
+## Análisis del problema
+
+Se observa que se quiere conseguir el conjunto de prendas a lavar que sea compatible tal que se minimicen los costos de lavado.
+Por lo tanto se debe focalizar en:
+
+- Buscar conjuntos de prendas a lavar compatibles
+- Buscar el conjunto de prendas en distintos lavados tal que se minimice el tiempo de lavado
+
+## Solución propuesta

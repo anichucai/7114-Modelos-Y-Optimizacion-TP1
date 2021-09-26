@@ -6,11 +6,10 @@ Crear un grafo no dirijido cuyos vértices son prendas y las aristas representan
 from collections import defaultdict
 import random
 
-def find_single_clique(graph):
+def find_single_clique(graph, start_vertex):
     clique = []
     vertices = list(graph.keys())
-    rand = random.randrange(0, len(vertices), 1)
-    clique.append(vertices[rand])
+    clique.append(vertices[start_vertex])
     for v in vertices:
         if v in clique:
             continue
@@ -25,10 +24,10 @@ def find_single_clique(graph):
             clique.append(v)
     return sorted(clique)
 
-def finds_cliques(M, iterations=1000):
+def finds_cliques(M):
     cliques = set()
-    for _ in range(iterations):
-        cliques.add(tuple(find_single_clique(M)))
+    for vertex in range(0, len(M.keys())):
+        cliques.add(tuple(find_single_clique(M, vertex)))
     return list(cliques)
 
 def parsear_archivo(nombre_archivo):
@@ -90,7 +89,6 @@ def drop_vertices(M, verices):
     return M2
 
 def resolver(incompatibilidades, datos_prendas):
-    incompatibilidades, datos_prendas = parsear_archivo("primer_problema.txt")
     M = matriz_de_compatibilidades(incompatibilidades)
     res = []
     prendas_a_lavar = set(M.keys())
@@ -114,8 +112,8 @@ def generate_result(res, nombre_archivo):
         file.write(content)
 
 def main():
-    incompatibilidades, datos_prendas = parsear_archivo("primer_problema.txt")
+    incompatibilidades, datos_prendas = parsear_archivo("inputs/primer_problema.txt")
     res = resolver(incompatibilidades, datos_prendas)
-    generate_result(res, 'resultados/heuristica_clique.txt')
+    generate_result(res, 'outputs/heuristica_clique.txt')
 
 main()

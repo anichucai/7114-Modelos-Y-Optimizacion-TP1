@@ -1,0 +1,42 @@
+Facultad de Ingeniería de la Universidad de Buenos Aires 
+
+Modelos y Optimización I - 2021 1C
+
+Autor: Ana María Cai (Padrón: 102150)
+
+# Trabajo Práctico I
+
+## Análisis del problema
+
+Se observa que se quiere conseguir el conjunto de prendas a lavar que sea compatible tal que se minimicen los costos de lavado.
+
+Por lo tanto se debe focalizar en:
+
+- Buscar conjuntos de prendas a lavar compatibles
+- Buscar el conjunto de prendas en distintos lavados tal que se minimice el tiempo de lavado
+
+## Solución propuesta
+
+### Lavados compatibles
+
+En primer lugar, se busca conjuntos de prendas a lavar compatibles. Para ello, primero se identifica para cada prenda aquellas prendas con las que no son compatibles. A base de esto, se identifica para cada prenda las prendas con las que son compatibles. Luego, se genera un grafo en donde:
+
+- los vértices representan las prendas
+- las aristas simbolizan la compatibilidad entre las prendas/vértices que une.
+
+Luego, nos damos cuenta que para que un conjunto de vértices o prendas pueda realizarse en un lavado todas las prendas/vértices deben ser compatibles/adjacentes entre sí. Es decir, queremos encontrar grafos completos. Lueho,vemos que este problema es similar al problema "cliqué" que es NP-Complete y buscamos una solución greedy de tal probelma.
+
+### Costo mínimo de lavado
+
+En segundo lugar, se quiere buscar una manera de elegir los conjuntos de prendas que minimicen los costos de lavado. Para ello:
+
+1) Se identifican las prendas sin lavado definido
+2) Se buscan los conjuntos de prendas compatibles entre las prendas sin lavado definido
+3) Se calcula para cada uno de los conjuntos la suma de sus tiempos de lavado
+4) Se identifica el conjunto con el costo máximo
+5) Ese conjutno con tiempo máximo se le define un lavado 
+6) Se repite el paso 2) hasta que no hayan más prendas a definir
+
+## Conclución
+
+Con esta resolución se encontró una solución válida pero no hay manera de asegurar que es la solución óptima.
