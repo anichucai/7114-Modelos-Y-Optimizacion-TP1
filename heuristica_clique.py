@@ -112,8 +112,8 @@ def generate_result(res, nombre_archivo):
         file.write(content)
 
 def main():
-    incompatibilidades, datos_prendas = parsear_archivo("inputs/primer_problema.txt")
+    incompatibilidades, datos_prendas = parsear_archivo("inputs/segundo_problema.txt")
     res = resolver(incompatibilidades, datos_prendas)
-    generate_result(res, 'outputs/heuristica_clique.txt')
+    generate_result(res, 'outputs/heuristica_clique_entrega_2.txt')
 
 main()
