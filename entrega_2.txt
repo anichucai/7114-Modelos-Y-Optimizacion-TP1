@@ -1,0 +1,51 @@
+Facultad de Ingeniería de la Universidad de Buenos Aires 
+
+Modelos y Optimización I - 2021 1C
+
+# Trabajo Práctico I
+
+## Análisis del problema
+
+Se observa que se quiere conseguir el conjunto de prendas a lavar que sea compatible tal que se minimicen los costos de lavado.
+
+Por lo tanto se debe focalizar en:
+
+- Buscar conjuntos de prendas a lavar compatibles
+- Buscar el conjunto de prendas en distintos lavados tal que se minimice el tiempo de lavado
+
+## Solución propuesta
+
+### Lavados compatibles
+
+En primer lugar, se busca conjuntos de prendas a lavar compatibles. Para ello, primero se identifica para cada prenda aquellas prendas con las que no son compatibles. A base de esto, se identifica para cada prenda las prendas con las que son compatibles. Luego, se genera un grafo en donde:
+
+- los vértices representan las prendas
+- las aristas simbolizan la compatibilidad entre las prendas/vértices que une.
+
+Luego, nos damos cuenta que para que un conjunto de vértices o prendas pueda realizarse en un lavado todas las prendas/vértices deben ser compatibles/adjacentes entre sí. Es decir, queremos encontrar grafos completos. Lueho,vemos que este problema es similar al problema "cliqué" que es NP-Complete y buscamos una solución greedy de tal probelma.
+
+### Costo mínimo de lavado
+
+En segundo lugar, se quiere buscar una manera de elegir los conjuntos de prendas que minimicen los costos de lavado. 
+
+#### Heuristica clique
+
+Por un lado, se define la heurisitica siguiente:
+
+1) Se identifican las prendas sin lavado definido
+2) Se buscan los conjuntos de prendas compatibles entre las prendas sin lavado definido (cada conjunto seria un clique).
+3) Luego, para elegir cuales de esos conjuntos compatibles se eligen, se plantearon varias heuristicas:
+
+- heuristica_clique_con_mayor_suma:  403 tiempo
+- heuristica_clique_mas_ahorro:  403 tiempo
+- heuristica_clique_mas_largo_entre_la_sumas_mas_grandes:  403 tiempo
+- heuristica_clique_con_suma_mas_grande_entre_los_mas_largos:  422 tiempo
+- heuristica_clique_mas_largo:  464 tiempo
+- heuristica_clique_con_lavado_mas_largo:  719 tiempo
+
+4) A ese conjutno se le define un lavado.
+5) Se repite el paso 2) hasta que no hayan más prendas a definir su lavado
+
+## Conclución
+
+Con esta resolución se encontró una solución válida pero no hay manera de asegurar que es la solución óptima.
