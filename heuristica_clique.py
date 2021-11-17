@@ -1,7 +1,4 @@
-'''
-HEURÍSTICA:
-Crear un grafo no dirijido cuyos vértices son prendas y las aristas representan la compatibiliadad entre vértices. Luego, queremos encontrar conjunto de prendas que sean todas compatibles entre sí. Luego, queremos buscar las componentes conexas en el grafo. Para ello se aplica DFS
-'''
+
 
 from collections import defaultdict
 import random
@@ -111,9 +108,24 @@ def generate_result(res, nombre_archivo):
     with open(nombre_archivo, 'w') as file:
         file.write(content)
 
+def get_score(result, datos_prendas):
+    tiempos_prendas = []
+    for i in range(len(result)):
+        tiempo = []
+        for j in range(len(result[i])):
+            tiempo.append(datos_prendas[result[i][j]])
+        tiempos_prendas.append(tiempo)
+    
+    score = 0
+    for t in tiempos_prendas:
+        score += max(t)
+    return score
+
+
 def main():
     incompatibilidades, datos_prendas = parsear_archivo("inputs/segundo_problema.txt")
     res = resolver(incompatibilidades, datos_prendas)
+    print("\nSCORE", get_score(res, datos_prendas), "\n")
     generate_result(res, 'outputs/heuristica_clique_entrega_2.txt')
 
 main()
