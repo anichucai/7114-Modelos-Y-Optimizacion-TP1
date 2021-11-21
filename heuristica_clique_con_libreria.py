@@ -39,18 +39,6 @@ def matriz_de_compatibilidades(incompatibilidades):
         res[n] = nodos.difference(res[n].union({n}))
     return res
 
-def dropVetex(M, vertex):
-    M2 = M.copy()
-    del M2[vertex]
-    for x in M2.keys():
-        M2[x]= [w for w in M2[x] if w!=vertex]
-    return M2
-
-def drop_vertices(M, verices):
-    M2 = M.copy()
-    for v in verices:
-        M2 = dropVetex(M2, v)
-    return M2
 
 # Funciones de clique:
 def resolver(incompatibilidades, datos_prendas):
@@ -73,24 +61,11 @@ def resolver(incompatibilidades, datos_prendas):
     res = []
     while(len(G.nodes()) != 0):
         lavado = clique.max_weight_clique(G)[0]
-        print(lavado)
         for n in lavado:
             G.remove_node(n)
         res.append(list(lavado))
 
     return res
-
-
-def generate_result(res, nombre_archivo):
-    content = ""
-    i = 1
-    for t in res:
-        for e in t:
-            content += str(e) + " " + str(i) + "\n"
-        i += 1
-
-    with open(nombre_archivo, 'w') as file:
-        file.write(content)
 
 # Funcion obtener puntaje:
 
@@ -106,6 +81,20 @@ def get_score(result, datos_prendas):
     for t in tiempos_prendas:
         score += max(t)
     return score
+
+# Funcion generar archivo
+
+def generate_result(res, nombre_archivo):
+    content = ""
+    i = 1
+    for t in res:
+        for e in t:
+            content += str(e) + " " + str(i) + "\n"
+        i += 1
+
+    with open(nombre_archivo, 'w') as file:
+        file.write(content)
+
 
 # Funcion principal:
 

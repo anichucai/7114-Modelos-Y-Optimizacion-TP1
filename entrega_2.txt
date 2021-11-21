@@ -43,8 +43,14 @@ Por un lado, se define la heurisitica siguiente:
 - heuristica_clique_mas_largo:  464 tiempo
 - heuristica_clique_con_lavado_mas_largo:  719 tiempo
 
-4) A ese conjutno se le define un lavado.
-5) Se repite el paso 2) hasta que no hayan más prendas a definir su lavado
+4) A ese conjunto se le define un lavado y se saca del conjunto de prendas a definir lavado.
+5) Se repite el paso 2) hasta que no hayan más prendas a definir su lavado.
+
+#### Heuristica clique con libreria
+
+Por otro lado, se utilizo una libreria de python que averigua aproximadamente el maximo clique pesado de un grafo.
+Es decir, se realizan los mismos pasos de "Heuristica clique" pero se reemplaza el paso 3) por el de la libreia.
+Esta heurisitica resulto en el mejor puntaje: 362 puntos.
 
 ## Conclución
 
