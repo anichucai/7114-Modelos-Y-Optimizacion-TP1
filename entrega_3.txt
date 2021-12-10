@@ -1,0 +1,41 @@
+
+Facultad de Ingeniería de la Universidad de Buenos Aires
+ 
+Modelos y Optimización I - 2021 1C
+ 
+# Trabajo Práctico I
+ 
+## Análisis del problema
+ 
+Se presenta una solución óptima al problema con el que se viene lidiando. Se sabe que es óptimo hay que no utilizar una heurística si no, usa programación lineal.
+Sin embargo, esta solución es inmanejable de que termine como se encuentra en estos momentos. Para ello se realizaron ciertas modificaciones.
+ 
+## Solución propuesta
+ 
+En primer lugar, se corrió el código con el algoritmo que da la solución óptima y se observó que este tarda mucho tiempo en ejecutarse y no se consiguió el óptimo como se ve en el siguiente output:
+ 
+Parece que no se llegó al óptimo, status: 107
+Optimo: 96.000000
+Cota: 70.653948
+Nodos: 3031
+Tiempo: 1800.516000
+ 
+En segundo lugar, se modifica la función "buscarSolucion" que busca una solución válida (no la óptima) que utiliza como base para calcular el algoritmo. En principio, esta función le asigna un color diferente a cada prenda (es decir, le asigna un lavado distinto).
+Cuando se hardcodear la solución aproximada con la heurística de la entrega anterior, se disminuyen ciertos pasos en la búsqueda de una solución válida que se acerque a la óptima. Sin embargo, aunque se nota que el algoritmo progresa más rápido, no se llega al óptimo.
+ 
+Parece que no se llegó al óptimo, status: 107
+Optimo: 96.000000
+Cota: 70.653948
+Nodos: 3082
+Tiempo: 1800.485000
+ 
+En tercer lugar, se disminuye la cantidad máxima de colores que puede tener el grafo. Es decir, se impone una cantidad máxima de lavados que se pueden realizar. Por lo tanto, esto también disminuye el tiempo de cómputo ya que se analizan menos posibilidades de lavado en las que colocar las distintas prendas.Sin embargo, aunque se nota que el algoritmo progresa más rápido, no se llega al óptimo.
+ 
+Por último, se agregó una restricción más al problema de programación lineal. Con ella, se reduce el tiempo de cómputo al quitar las relaciones entre que se consideraron de manera repetida. Se logra conseguir la solución óptima.
+ 
+Optimo: 91.000000                                                                                                       
+Cota: 91.000000                                                                                                         
+Nodos: 16717                                                                                                            
+Tiempo: 135.688000  
+## Conclusión
+ Con el tuneo del algoritmo se logra obtener una solución óptima en un tiempo razonable.

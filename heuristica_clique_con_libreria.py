@@ -102,7 +102,7 @@ def main(nombre_archivo):
     incompatibilidades, datos_prendas = parsear_archivo(nombre_archivo)
     nombre = "clique_con_libreria"
     res = resolver(incompatibilidades, datos_prendas)
-    generate_result(res, "outputs/e2_" + nombre + ".txt")
+    generate_result(res, "outputs/e3_" + nombre + ".txt")
     print(nombre + ": ", get_score(res, datos_prendas))
 
-main("inputs/segundo_problema.txt")
+main("inputs/tercer_problema.txt")

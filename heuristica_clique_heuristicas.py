@@ -220,7 +220,7 @@ def main(nombre_archivo):
 
     for heuristica, nombre in heuristicas:
         res = resolver(incompatibilidades, datos_prendas, heuristica)
-        generate_result(res, "outputs/e2_" + nombre + ".txt")
+        generate_result(res, "outputs/e3_" + nombre + ".txt")
         print(nombre + ": ", get_score(res, datos_prendas))
 
-main("inputs/segundo_problema.txt")
+main("inputs/tercer_problema.txt")
