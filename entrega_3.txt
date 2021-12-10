@@ -1,41 +1,42 @@
 
-Facultad de IngenierÌa de la Universidad de Buenos Aires
+Facultad de Ingenier√≠a de la Universidad de Buenos Aires
  
-Modelos y OptimizaciÛn I - 2021 1C
+Modelos y Optimizaci√≥n I - 2021 1C
  
-# Trabajo Pr·ctico I
+# Trabajo Pr√°ctico I
  
-## An·lisis del problema
+## An√°lisis del problema
  
-Se presenta una soluciÛn Ûptima al problema con el que se viene lidiando. Se sabe que es Ûptimo hay que no utilizar una heurÌstica si no, usa programaciÛn lineal.
-Sin embargo, esta soluciÛn es inmanejable de que termine como se encuentra en estos momentos. Para ello se realizaron ciertas modificaciones.
+Se presenta una soluci√≥n √≥ptima al problema con el que se viene lidiando. Se sabe que es √≥ptimo hay que no utilizar una heur√≠stica si no, usa programaci√≥n lineal.
+Sin embargo, esta soluci√≥n es inmanejable de que termine como se encuentra en estos momentos. Para ello se realizaron ciertas modificaciones.
  
-## SoluciÛn propuesta
+## Soluci√≥n propuesta
  
-En primer lugar, se corriÛ el cÛdigo con el algoritmo que da la soluciÛn Ûptima y se observÛ que este tarda mucho tiempo en ejecutarse y no se consiguiÛ el Ûptimo como se ve en el siguiente output:
+En primer lugar, se corri√≥ el c√≥digo con el algoritmo que da la soluci√≥n √≥ptima y se observ√≥ que este tarda mucho tiempo en ejecutarse y no se consigui√≥ el √≥ptimo como se ve en el siguiente output:
  
-Parece que no se llegÛ al Ûptimo, status: 107
+"Parece que no se lleg√≥ al √≥ptimo, status: 107
 Optimo: 96.000000
 Cota: 70.653948
 Nodos: 3031
-Tiempo: 1800.516000
+Tiempo: 1800.516000"
  
-En segundo lugar, se modifica la funciÛn "buscarSolucion" que busca una soluciÛn v·lida (no la Ûptima) que utiliza como base para calcular el algoritmo. En principio, esta funciÛn le asigna un color diferente a cada prenda (es decir, le asigna un lavado distinto).
-Cuando se hardcodear la soluciÛn aproximada con la heurÌstica de la entrega anterior, se disminuyen ciertos pasos en la b˙squeda de una soluciÛn v·lida que se acerque a la Ûptima. Sin embargo, aunque se nota que el algoritmo progresa m·s r·pido, no se llega al Ûptimo.
+En segundo lugar, se modifica la funci√≥n "buscarSolucion" que busca una soluci√≥n v√°lida (no la √≥ptima) que utiliza como base para calcular el algoritmo. En principio, esta funci√≥n le asigna un color diferente a cada prenda (es decir, le asigna un lavado distinto).
+Cuando se hardcodear la soluci√≥n aproximada con la heur√≠stica de la entrega anterior, se disminuyen ciertos pasos en la b√∫squeda de una soluci√≥n v√°lida que se acerque a la √≥ptima. Sin embargo, aunque se nota que el algoritmo progresa m√°s r√°pido, no se llega al √≥ptimo.
  
-Parece que no se llegÛ al Ûptimo, status: 107
+"Parece que no se lleg√≥ al √≥ptimo, status: 107
 Optimo: 96.000000
 Cota: 70.653948
 Nodos: 3082
-Tiempo: 1800.485000
+Tiempo: 1800.485000"
  
-En tercer lugar, se disminuye la cantidad m·xima de colores que puede tener el grafo. Es decir, se impone una cantidad m·xima de lavados que se pueden realizar. Por lo tanto, esto tambiÈn disminuye el tiempo de cÛmputo ya que se analizan menos posibilidades de lavado en las que colocar las distintas prendas.Sin embargo, aunque se nota que el algoritmo progresa m·s r·pido, no se llega al Ûptimo.
+En tercer lugar, se disminuye la cantidad m√°xima de colores que puede tener el grafo. Es decir, se impone una cantidad m√°xima de lavados que se pueden realizar. Por lo tanto, esto tambi√©n disminuye el tiempo de c√≥mputo ya que se analizan menos posibilidades de lavado en las que colocar las distintas prendas.Sin embargo, aunque se nota que el algoritmo progresa m√°s r√°pido, no se llega al √≥ptimo.
  
-Por ˙ltimo, se agregÛ una restricciÛn m·s al problema de programaciÛn lineal. Con ella, se reduce el tiempo de cÛmputo al quitar las relaciones entre que se consideraron de manera repetida. Se logra conseguir la soluciÛn Ûptima.
+Por √∫ltimo, se agreg√≥ una restricci√≥n m√°s al problema de programaci√≥n lineal. Con ella, se reduce el tiempo de c√≥mputo al quitar las relaciones entre que se consideraron de manera repetida. Se logra conseguir la soluci√≥n √≥ptima.
  
-Optimo: 91.000000                                                                                                       
+"Optimo: 91.000000                                                                                                       
 Cota: 91.000000                                                                                                         
 Nodos: 16717                                                                                                            
-Tiempo: 135.688000  
-## ConclusiÛn
- Con el tuneo del algoritmo se logra obtener una soluciÛn Ûptima en un tiempo razonable.
+Tiempo: 135.688000"
+
+## Conclusi√≥n
+Con el tuneo del algoritmo se logra obtener una soluci√≥n √≥ptima en un tiempo razonable.
